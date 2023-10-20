@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+
+/preprocessed_data
+/trained_model
+/visualization
