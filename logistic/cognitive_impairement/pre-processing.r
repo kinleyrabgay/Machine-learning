@@ -23,6 +23,7 @@ preprocess_data <- function(data) {
   data$MMSE_class_2 <- ifelse(test = data$MMSE_class_2 == 0, yes = "Cognitively Healthy", no = "Cognitively Impaired")
   data$MMSE_class_2 <- as.factor(data$MMSE_class_2)
   
+  
   # Group data by Age and count the occurrences
   age_counts <- data %>%
     group_by(Age) %>%
