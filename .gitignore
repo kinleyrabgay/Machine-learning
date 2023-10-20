@@ -3,6 +3,6 @@
 .RData
 .Ruserdata
 
-/preprocessed_data
-/trained_model
-/visualization
+/cognitive_impairment/preprocessed_data
+/cognitive_impairment/trained_model
+/cognitive_impairment/visualization
