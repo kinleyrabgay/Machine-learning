@@ -2,6 +2,12 @@
 
 This repository contains scripts for Cognitive Impairment prediction using Random Forest and Logistic Regression models.
 
+## Description
+
+- **Random Forest Model**: This model utilizes the Random Forest algorithm to predict Cognitive Impairment based on the provided data. It's suitable for complex data and can provide accurate predictions.
+
+- **Logistic Regression Model**: The Logistic Regression model is used to predict Cognitive Impairment by modeling the relationship between the target variable and predictor variables. It's a simple yet effective method for classification tasks.
+
 ## Usage
 
 1. First, run the main script to preprocess the data and for data visualization:
