@@ -67,11 +67,14 @@ train_model <- function(data) {
   
   # Evaluate the model's performance
   actual_values <- testing_data$MMSE_class_2
-  confusion <- confusionMatrix(predictions, actual_values)
+  confusion_matrix <- confusionMatrix(predictions, actual_values)
   print("Confusion Matrix: ")
-  print(confusion)
-}
+  print(confusion_matrix)
 
+  # Extract and print F1-score
+  f1_score <- confusion_matrix$byClass["F1"]
+  cat("F1-Score:", f1_score, "\n\n")
+}
 
 #######################################################################################################
 
@@ -102,7 +105,7 @@ if (file.exists("preprocessed_data/preprocessed_data.csv")) {
   cat("################################# PREDICTION WITH RF-MODEL STEP #################################\n\n")
 
   # Load the test dataset
-  test_data <- read.csv('data/test.csv')
+  test_data <- read.csv('data/dementia_test.csv')
 
    # Load the saved logistic regression model
   loaded_rf_model <- load_rf_model("trained_model/lr_model/trained_lr_model.rds")

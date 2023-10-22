@@ -2,7 +2,7 @@
 source("utils/VisualizationFunctions.R")
 source("utils/PreprocessingFunctions.R")
 
-data_file <- "data/data.csv"
+data_file <- "data/dementia_data.csv"
 preprocessed_output_dir <- "preprocessed_data"
 visualize_output_dir <- "visualization"
 

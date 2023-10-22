@@ -64,6 +64,10 @@ train_model <- function(data) {
   # Evaluate the model's performance (you can use different metrics)
   confusion_matrix <- confusionMatrix(predictions, testing_data$MMSE_class_2)
   print(confusion_matrix)
+
+  # Extract and print F1-score
+  f1_score <- confusion_matrix$byClass["F1"]
+  cat("F1-Score:", f1_score, "\n\n")
 }
 
 #######################################################################################################
@@ -95,7 +99,7 @@ if (file.exists("preprocessed_data/preprocessed_data.csv")) {
   cat("################################# PREDICTION WITH LR-MODEL STEP #################################\n\n")
 
   # Load the test dataset
-  test_data <- read.csv('data/test.csv')
+  test_data <- read.csv('data/dementia_test.csv')
 
   # Load the saved logistic regression model
   loaded_lr_model <- load_lr_model("trained_model/lr_model/trained_lr_model.rds")
@@ -106,7 +110,11 @@ if (file.exists("preprocessed_data/preprocessed_data.csv")) {
     predictions <- make_predictions(test_data, loaded_lr_model)
     predicted_class <- as.character(predictions)
     
-    cat("Model's prediction of the patient record: ", predicted_class, "\n\n")
+    if (predicted_class == "Cognitively Impaired") {
+      cat("Hey, this person might need some help, [Cognitively Impaired]\n\n")
+    } else {
+      cat("Model's prediction of the patient record: ", predicted_class, "\n\n")
+    }
   } else {
     cat("Logistic regression model not loaded. Please check the model file path.\n\n")
   }
